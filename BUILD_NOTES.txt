@@ -1,0 +1,123 @@
+blackboxApp QUICK REFERENCE
+============================
+
+ONE-CLICK SETUP (Windows):
+-------------------------
+setup-and-build-android.bat
+↓
+Automatically:
+  • Installs dependencies
+  • Fixes Android build issues
+  • Builds and deploys app
+  • Runs on connected device
+
+
+MANUAL COMMANDS:
+----------------
+
+Install dependencies:
+  npm install
+
+Development build:
+  npm run android
+
+Production build:
+  npm run build --env prod
+
+Web development (desktop):
+  npm run watch
+
+Testing:
+  npm run test
+
+Linting:
+  npm run lint
+
+iOS build (macOS only):
+  npm run ios
+
+
+ENVIRONMENT SETUP (One Time):
+-----------------------------
+
+Windows:
+  1. Install Node.js from https://nodejs.org/
+  2. Install Android SDK from https://developer.android.com/studio
+  3. Set ANDROID_SDK_ROOT environment variable
+  4. Set JAVA_HOME environment variable
+  5. Run: setup-and-build-android.bat
+
+macOS:
+  1. Install Xcode from App Store
+  2. brew install node
+  3. sudo gem install cocoapods
+  4. npm install
+  5. npm run ios
+
+Linux:
+  1. Install Node.js
+  2. Install Android SDK
+  3. Set ANDROID_SDK_ROOT & JAVA_HOME
+  4. npm install
+  5. npm run android
+
+
+DEVICE SETUP:
+-----------
+
+Android:
+  • Connect via USB
+  • Enable Developer Mode (Settings → About Phone → tap Build Number 7x)
+  • Enable USB Debugging (Settings → Developer Options)
+  • Allow USB Debugging prompt on device
+  • Run: setup-and-build-android.bat
+
+iOS:
+  • Pair device with Xcode
+  • Trust certificate on device
+  • Run: npm run ios
+
+
+WHAT setup-and-build-android.bat DOES:
+-------------------------------------
+✓ Verifies prerequisites
+✓ Installs npm packages
+✓ Patches Cordova for modern Android SDK
+✓ Sets up D8 compiler (replaces old DX tool)
+✓ Configures gradle
+✓ Cleans previous builds
+✓ Builds APK
+✓ Deploys to device/emulator
+
+No manual gradle/build configuration needed!
+
+
+TROUBLESHOOTING:
+---------------
+
+"ANDROID_SDK_ROOT not set"
+  → Set environment variable in Windows Settings
+
+"No Java compiler"
+  → Set JAVA_HOME environment variable
+
+"No device found"
+  → Connect device via USB + enable USB debugging
+  → Or start Android emulator first
+
+"Build fails with gradle error"
+  → Run setup-and-build-android.bat again
+  → It will reapply all fixes
+
+
+FILES INCLUDED:
+---------------
+setup-and-build-android.bat  ← Run this! (All in one)
+setup-and-build-ios.bat      ← macOS instructions
+SETUP_GUIDE.md               ← Full documentation
+BUILD_NOTES.txt              ← This file
+
+
+FOR MORE INFO:
+--------------
+Read: SETUP_GUIDE.md
